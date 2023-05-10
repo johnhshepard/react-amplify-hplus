@@ -17,6 +17,12 @@
       },
       "api": {
         "kineteco": {}
+      },
+      "hosting": {
+        "amplifyhosting": {
+          "appId": "d2ub8bfsa6er5b",
+          "type": "manual"
+        }
       }
     }
   }

@@ -2,6 +2,14 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Public Link
+
+https://dev.d2ub8bfsa6er5b.amplifyapp.com
+
+## Source
+
+This project was built based on the LinkedIn Learning course "Build a React Application Using AWS Amplify" by Brett McGlaughlin. Link: https://www.linkedin.com/learning/build-a-react-application-using-aws-amplify/
+
 ## Available Scripts
 
 In the project directory, you can run:

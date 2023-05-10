@@ -1,8 +1,34 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import ProductItem from './ProductItem';
-import productData from './data/products.json'
+import { API, graphqlOperation } from 'aws-amplify';
+// import productData from './data/products.json'
+
+const listProducts = `
+  query ListProducts {
+    listProducts {
+      items {
+        id
+        dynamicSlug
+        productName
+      }
+    }
+  }
+`
 
 const Products = () => {
+  const [productData, setProductData] = useState([]);
+
+  const loadProductData = async() => {
+    const { data } = await API.graphql(
+      graphqlOperation(listProducts)
+    );
+    setProductData(data?.listProducts?.items)
+  }
+  
+  useEffect(() => {
+    loadProductData();
+  }, []);
+  
   return (
     <section id="products" className="section">
       <header className="imageheader"></header>
@@ -12,7 +38,7 @@ const Products = () => {
       </div>
       <ul className="product-list">
         {
-          productData.map((product) => <ProductItem dynamicSlug={`${product.dynamicSlug}`} productName={`${product.productName}`} />)
+          productData?.map((product) => <ProductItem dynamicSlug={`${product.dynamicSlug}`} productName={`${product.productName}`} />)
         }
       </ul>
     </section>
